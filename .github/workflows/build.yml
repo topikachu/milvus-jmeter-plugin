@@ -1,0 +1,47 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:20.10.7
+        options: --privileged
+        ports:
+          - 2375:2375
+        env:
+          DOCKER_TLS_CERTDIR: ""
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Run tests
+        run: mvn test
+        env:
+          DOCKER_HOST: tcp://localhost:2375
