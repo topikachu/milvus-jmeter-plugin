@@ -47,7 +47,7 @@ jobs:
           mvn -B release:prepare release:perform
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: |
