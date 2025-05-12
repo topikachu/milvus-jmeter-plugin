@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.github.topikachu.jmeter.milvus</groupId>
         <artifactId>milvus-jmeter-plugin-parent</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <artifactId>milvus-jmeter-ui-test</artifactId>
 
@@ -12,7 +12,7 @@
         <dependency>
             <groupId>com.github.topikachu.jmeter.milvus</groupId>
             <artifactId>milvus-jmeter-plugin</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.jmeter</groupId>
