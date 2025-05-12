@@ -96,7 +96,7 @@ public class MilvusSearchSamplerGui extends AbstractSamplerGui {
 
     @Override
     public String getStaticLabel() {
-        return "Milvus";
+        return "Milvus Search";
     }
 
     @Override
@@ -144,8 +144,5 @@ public class MilvusSearchSamplerGui extends AbstractSamplerGui {
         return Arrays.asList(MenuFactory.SAMPLERS);
     }
 
-    @Override
-    public JPopupMenu createPopupMenu() {
-        return new JPopupMenu(); // Implement the abstract method
-    }
+
 }
