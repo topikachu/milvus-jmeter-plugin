@@ -29,6 +29,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8'
+          distribution: 'zulu' # You can also use 'adopt' or 'zulu'
 
       - name: Cache Maven packages
         uses: actions/cache@v3
